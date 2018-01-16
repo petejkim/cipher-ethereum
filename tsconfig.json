@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "target": "es2015",
+    "lib": [
+      "es7"
+    ],
+    "outDir": "./dist"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "filesGlob": [
+    "src/**/*.ts"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
+  "types": [
+    "jest"
+  ]
+}

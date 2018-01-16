@@ -1,0 +1,49 @@
+{
+  "name": "cipher-ethereum",
+  "version": "0.0.1",
+  "description": "An Ethereum library used by Cipher Browser, a mobile Ethereum client",
+  "keywords": ["ethereum", "etherium", "ether", "eth", "cipherbrowser", "cipher", "cypher", "crypto", "cryptocurrency", "eip55", "erc20", "wallet", "typescript"],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/petejkim/cipher-ethereum.git",
+  "author": "Peter Jihoon Kim",
+  "license": "ISC",
+  "scripts": {
+    "test": "jest",
+    "dist": "rm -rf dist && tsc && babel dist -d dist",
+    "tsc": "tsc --noEmit --pretty",
+    "lint": "tslint -p . 'src/**/*.ts{,x}'",
+    "watch": "nodemon -e ts,tsx,js,json --watch src/ --exec 'yarn tsc && yarn lint'"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-node8": "^1.1.2",
+    "jest": "^20.0.4",
+    "nodemon": "^1.11.0",
+    "ts-jest": "^20.0.7",
+    "tslint": "^5.5.0",
+    "tslint-config-standard": "^6.0.1",
+    "typescript": "^2.4.1"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ],
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
+  },
+  "dependencies": {
+  }
+}

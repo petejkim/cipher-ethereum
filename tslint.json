@@ -1,0 +1,18 @@
+{
+  "extends": ["tslint-config-standard"],
+  "rules": {
+    "await-promise": false,
+    "jsx-alignment": false,
+    "jsx-boolean-value": false,
+    "jsx-curly-spacing": false,
+    "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false,
+    "member-ordering": false,
+    "no-empty": false,
+    "no-unused-variable": false,
+    "semicolon": false,
+    "space-before-function-paren": false,
+    "ter-func-call-spacing": false,
+    "ter-indent": false
+  }
+}

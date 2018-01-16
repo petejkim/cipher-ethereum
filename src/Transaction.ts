@@ -1,3 +1,5 @@
+import * as rlp from 'rlp'
+
 import {
   bigNumberToBuffer,
   bnToBuffer,
@@ -8,7 +10,6 @@ import {
 
 import { BigNumber } from 'bignumber.js'
 import { ec as EC } from 'elliptic'
-import rlp from 'rlp'
 
 const secp256k1 = new EC('secp256k1')
 

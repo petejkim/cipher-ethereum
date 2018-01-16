@@ -32,11 +32,13 @@
   "dependencies": {
     "bignumber.js": "^5.0.0",
     "bn.js": "^4.11.8",
+    "bs58": "^4.0.1",
     "elliptic": "^6.4.0",
     "keccak": "^1.4.0",
     "rlp": "^2.0.0"
   },
   "devDependencies": {
+    "@types/bs58": "^3.0.30",
     "@types/jest": "^22.0.1",
     "@types/node": "^9.3.0",
     "babel-cli": "^6.24.1",
@@ -56,8 +58,15 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testEnvironment": "node",
-    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
   }
 }

@@ -2,7 +2,21 @@
   "name": "cipher-ethereum",
   "version": "0.0.1",
   "description": "An Ethereum library used by Cipher Browser, a mobile Ethereum client",
-  "keywords": ["ethereum", "etherium", "ether", "eth", "cipherbrowser", "cipher", "cypher", "crypto", "cryptocurrency", "eip55", "erc20", "wallet", "typescript"],
+  "keywords": [
+    "ethereum",
+    "etherium",
+    "ether",
+    "eth",
+    "cipherbrowser",
+    "cipher",
+    "cypher",
+    "crypto",
+    "cryptocurrency",
+    "eip55",
+    "erc20",
+    "wallet",
+    "typescript"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/petejkim/cipher-ethereum.git",
@@ -15,14 +29,23 @@
     "lint": "tslint -p . 'src/**/*.ts{,x}'",
     "watch": "nodemon -e ts,tsx,js,json --watch src/ --exec 'yarn tsc && yarn lint'"
   },
+  "dependencies": {
+    "bignumber.js": "^5.0.0",
+    "bn.js": "^4.11.8",
+    "elliptic": "^6.4.0",
+    "keccak": "^1.4.0",
+    "rlp": "^2.0.0"
+  },
   "devDependencies": {
+    "@types/jest": "^22.0.1",
+    "@types/node": "^9.3.0",
     "babel-cli": "^6.24.1",
     "babel-preset-node8": "^1.1.2",
-    "jest": "^20.0.4",
+    "jest": "^22.1.1",
     "nodemon": "^1.11.0",
-    "ts-jest": "^20.0.7",
+    "ts-jest": "^22.0.1",
     "tslint": "^5.5.0",
-    "tslint-config-standard": "^6.0.1",
+    "tslint-config-standard": "^7.0.0",
     "typescript": "^2.4.1"
   },
   "engines": {
@@ -33,17 +56,8 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "<rootDir>/dist/",
-      "<rootDir>/node_modules/"
-    ],
+    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json"
-    ]
-  },
-  "dependencies": {
+    "moduleFileExtensions": ["ts", "js", "json"]
   }
 }

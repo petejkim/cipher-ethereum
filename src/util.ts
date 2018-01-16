@@ -1,6 +1,10 @@
+import { ec as EC, KeyPair } from 'elliptic'
+
 import BN from 'bn.js'
 import { BigNumber } from 'bignumber.js'
 import createKeccakHash from 'keccak/js'
+
+const secp256k1 = new EC('secp256k1')
 
 export function numberToHex (
   num: number,
@@ -60,4 +64,19 @@ export function bnToBuffer (bn: BN): Buffer {
 export function keccak256 (data: Buffer | string): Buffer {
   const buf = data instanceof Buffer ? data : Buffer.from(data, 'utf8')
   return createKeccakHash('keccak256').update(buf).digest()
+}
+
+export function decompressPublicKey (publicKey: Buffer): Buffer {
+  const length = publicKey.length
+  const firstByte = publicKey[0]
+  if ((length !== 33 && length !== 65) || firstByte < 2 || firstByte > 4) {
+    throw new Error('invalid public key')
+  }
+  let key: KeyPair
+  try {
+    key = secp256k1.keyFromPublic(publicKey)
+  } catch (_err) {
+    throw new Error('invalid public key')
+  }
+  return Buffer.from(key.getPublic().encode())
 }

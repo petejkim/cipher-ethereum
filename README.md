@@ -9,4 +9,4 @@ A typed and fully-tested Ethereum library used by [Cipher Browser](https://www.c
 **Docs and more code coming soon**
 
 - - -
-Copyright © 2017 Peter Jihoon Kim. This project is licensed under the [ISC license](https://raw.githubusercontent.com/petejkim/cipher-ethereum/master/LICENSE).
+Copyright © 2017-2018 HardFork Inc. This project is licensed under the [ISC license](https://raw.githubusercontent.com/petejkim/cipher-ethereum/master/LICENSE).

@@ -15,13 +15,10 @@ describe('generate', () => {
       const entropy = Buffer.from(hex, 'hex')
       const phrase = testCases[hex]
       const mnemonic = Mnemonic.generate(entropy)
-      if (mnemonic) {
-        expect(mnemonic.entropy.toString('hex')).toBe(hex)
-        expect(mnemonic.phrase).toBe(phrase)
-        expect(mnemonic.words).toEqual(phrase.split(' '))
-      } else {
-        expect(mnemonic).not.toBe(null)
-      }
+      expect(mnemonic).not.toBe(null)
+      expect(mnemonic!.entropy.toString('hex')).toBe(hex)
+      expect(mnemonic!.phrase).toBe(phrase)
+      expect(mnemonic!.words).toEqual(phrase.split(' '))
     })
   })
 
@@ -53,13 +50,10 @@ describe('parse', () => {
     Object.keys(testCases).forEach(phrase => {
       const hex = testCases[phrase]
       const mnemonic = Mnemonic.parse(phrase)
-      if (mnemonic) {
-        expect(mnemonic.entropy.toString('hex')).toBe(hex)
-        expect(mnemonic.phrase).toBe(phrase)
-        expect(mnemonic.words).toEqual(phrase.split(' '))
-      } else {
-        expect(mnemonic).not.toBe(null)
-      }
+      expect(mnemonic).not.toBe(null)
+      expect(mnemonic!.entropy.toString('hex')).toBe(hex)
+      expect(mnemonic!.phrase).toBe(phrase)
+      expect(mnemonic!.words).toEqual(phrase.split(' '))
     })
   })
 

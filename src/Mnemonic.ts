@@ -40,11 +40,12 @@ export class Mnemonic {
     const ent = entropy.length * 8
     const cs = ent / 32
 
-    const bits = ([] as number[]).concat(...[...entropy].map(uint8ToBitArray))
+    const bits = flatten(Array.from(entropy).map(uint8ToBitArray))
     const shasum = crypto.createHash('sha256').update(entropy).digest()
-    const checksum = ([] as number[])
-      .concat(...[...shasum].map(uint8ToBitArray))
-      .slice(0, cs)
+    const checksum = flatten(Array.from(shasum).map(uint8ToBitArray)).slice(
+      0,
+      cs
+    )
     bits.push(...checksum)
 
     const words: string[] = []
@@ -68,7 +69,7 @@ export class Mnemonic {
       bitArrays.push(uint11ToBitArray(idx))
     }
 
-    const bits = ([] as number[]).concat(...bitArrays)
+    const bits = flatten(bitArrays)
     const cs = bits.length / 33
     if (cs !== Math.floor(cs)) return null
     const checksum = bits.slice(-cs)
@@ -80,9 +81,9 @@ export class Mnemonic {
     }
     const entropyBuf = Buffer.from(entropy)
     const shasum = crypto.createHash('sha256').update(entropyBuf).digest()
-    const checksumFromSha = ([] as number[])
-      .concat(...[...shasum].map(uint8ToBitArray))
-      .slice(0, cs)
+    const checksumFromSha = flatten(
+      Array.from(shasum).map(uint8ToBitArray)
+    ).slice(0, cs)
 
     if (!arraysEqual(checksumFromSha, checksum)) return null
 
@@ -134,6 +135,11 @@ export class Mnemonic {
       )
     })
   }
+}
+
+function flatten<T> (input: T[][]): T[] {
+  const arr: T[] = []
+  return arr.concat(...input)
 }
 
 function uint11ToBitArray (n: number): number[] {

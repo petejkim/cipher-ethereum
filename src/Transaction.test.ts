@@ -10,10 +10,10 @@ const privateKey = Buffer.from(
 
 const params: TransactionParams = {
   nonce: 27,
-  gasPriceWei: new BigNumber(20).mul(denominations.Gwei),
+  gasPriceWei: new BigNumber(20).times(denominations.Gwei),
   gasLimit: new BigNumber(21000),
   toAddress: '0xC589aC793Af309DB9690D819aBC9AAb37D169F6a',
-  valueWei: new BigNumber(1.5).mul(denominations.ether),
+  valueWei: new BigNumber(1.5).times(denominations.ether),
   data: '0xdeadbeef0cafebabe0123456789'
 }
 
@@ -28,9 +28,9 @@ describe('initialization', () => {
     expect(() => {
       tx = new Transaction({
         nonce: 0,
-        gasPriceWei: new BigNumber(20).mul(denominations.Gwei),
+        gasPriceWei: new BigNumber(20).times(denominations.Gwei),
         gasLimit: new BigNumber(21000),
-        valueWei: new BigNumber(1.5).mul(denominations.ether)
+        valueWei: new BigNumber(1.5).times(denominations.ether)
       })
     }).not.toThrow()
     expect(tx).not.toBe(null)

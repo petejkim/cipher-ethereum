@@ -1,27 +1,27 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": ".",
     "declaration": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2017", "dom"],
+    "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "noImplicitThis": true,
     "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true,
+    "outDir": "dist",
+    "rootDir": "src",
     "strictNullChecks": true,
-    "target": "es6",
-    "lib": [
-      "es7"
-    ],
-    "outDir": "./dist"
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es5"
   },
   "include": [
-    "src/**/*.ts"
-  ],
-  "filesGlob": [
-    "src/**/*.ts"
+    "src/**/*"
   ],
   "ignore": [
     "node_modules"

@@ -1,24 +1,23 @@
 import * as rlp from 'rlp'
+import BN from 'bn.js'
 
 import {
-  bigNumberToBuffer,
   bnToBuffer,
   hexToBuffer,
   keccak256,
   numberToBuffer
 } from './util'
 
-import { BigNumber } from 'bignumber.js'
 import { ec as EC } from 'elliptic'
 
 const secp256k1 = new EC('secp256k1')
 
 export interface TransactionParams {
   nonce: number
-  gasPriceWei: BigNumber
-  gasLimit: BigNumber
+  gasPriceWei: BN
+  gasLimit: BN
   toAddress?: string | null
-  valueWei: BigNumber
+  valueWei: BN
   data?: string | null
   chainId?: number
   v?: number
@@ -40,12 +39,12 @@ export class Transaction {
 
   constructor (params: TransactionParams) {
     this.nonce = numberToBuffer(params.nonce)
-    this.gasPriceWei = bigNumberToBuffer(params.gasPriceWei)
-    this.gasLimit = bigNumberToBuffer(params.gasLimit)
+    this.gasPriceWei = bnToBuffer(params.gasPriceWei)
+    this.gasLimit = bnToBuffer(params.gasLimit)
     this.toAddress = params.toAddress
       ? hexToBuffer(params.toAddress)
       : Buffer.alloc(0)
-    this.valueWei = bigNumberToBuffer(params.valueWei)
+    this.valueWei = bnToBuffer(params.valueWei)
     this.data = params.data ? hexToBuffer(params.data) : Buffer.alloc(0)
     this.chainId = params.chainId ? params.chainId : undefined // disallow 0
     this.v = params.v || 28

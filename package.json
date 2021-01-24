@@ -22,9 +22,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/petejkim/cipher-ethereum.git",
-  "author": "Toshi Holdings Pte. Ltd.",
-  "contributors": ["Peter Jihoon Kim"],
-  "license": "AGPL-3.0-only",
+  "author": "Peter Jihoon Kim",
+  "license": "MIT",
   "scripts": {
     "test": "jest",
     "dist": "rm -rf dist && tsc && babel dist -d dist",
@@ -33,36 +32,42 @@
     "watch": "nodemon -e ts,tsx,js,json --watch src/ --exec 'yarn tsc && yarn lint'"
   },
   "dependencies": {
-    "bignumber.js": "^7.2.1",
-    "bn.js": "^4.11.8",
+    "bn.js": "^5.1.3",
     "bs58": "^4.0.1",
-    "elliptic": "^6.4.0",
-    "keccak": "^1.4.0",
-    "rlp": "^2.0.0"
+    "elliptic": "^6.5.3",
+    "keccak": "^3.0.1",
+    "rlp": "^2.2.6"
   },
   "devDependencies": {
-    "@types/bs58": "^3.0.30",
-    "@types/jest": "^23.0.0",
-    "@types/node": "^10.3.1",
+    "@types/bs58": "^4.0.1",
+    "@types/jest": "^26.0.2",
+    "@types/node": "^14.14.22",
     "babel-cli": "^6.24.1",
     "babel-preset-latest-node": "^1.0.0",
-    "jest": "^22.4.2",
-    "nodemon": "^1.17.5",
-    "ts-jest": "^22.4.6",
-    "tslint": "^5.10.0",
-    "tslint-config-standard": "^7.0.0",
-    "typescript": "^2.9.1"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "ts-jest": "^26.4.4",
+    "tslint": "^6.1.3",
+    "tslint-config-standard": "^9.0.0",
+    "typescript": "^4.1.3"
   },
   "engines": {
-    "node": ">= 9.0.0"
+    "node": ">= 10.0.0"
   },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testEnvironment": "node",
-    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
   }
 }

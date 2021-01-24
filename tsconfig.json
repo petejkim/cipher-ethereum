@@ -4,6 +4,7 @@
     "alwaysStrict": true,
     "baseUrl": ".",
     "declaration": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2017", "dom"],

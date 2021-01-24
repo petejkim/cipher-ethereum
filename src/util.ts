@@ -1,7 +1,6 @@
 import { ec as EC, KeyPair } from 'elliptic'
 
 import BN from 'bn.js'
-import { BigNumber } from 'bignumber.js'
 import createKeccakHash from 'keccak/js'
 
 const secp256k1 = new EC('secp256k1')
@@ -10,15 +9,15 @@ export function numberToHex (
   num: number,
   includePrefix: boolean = true
 ): string {
-  const hex = new BigNumber(num).toString(16)
+  const hex = new BN(num).toString(16)
   return includePrefix ? '0x' + hex : hex
 }
 
-export function bigNumberToHex (
-  bigNum: BigNumber,
+export function bnToHex (
+  bn: BN,
   includePrefix: boolean = true
 ): string {
-  const hex = bigNum.toString(16)
+  const hex = bn.toString(16)
   return includePrefix ? '0x' + hex : hex
 }
 
@@ -45,13 +44,6 @@ export function numberToBuffer (num: number): Buffer {
     return Buffer.alloc(0)
   }
   return hexToBuffer(numberToHex(num, false))
-}
-
-export function bigNumberToBuffer (bigNum: BigNumber): Buffer {
-  if (bigNum.isZero()) {
-    return Buffer.alloc(0)
-  }
-  return hexToBuffer(bigNumberToHex(bigNum, false))
 }
 
 export function bnToBuffer (bn: BN): Buffer {

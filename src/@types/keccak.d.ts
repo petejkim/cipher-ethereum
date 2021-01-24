@@ -6,7 +6,7 @@ declare module 'keccak/js' {
     digest (encoding: string): string
   }
 
-  export default function createKeccakHash (
+  function createKeccakHash (
     algorithm:
       | 'keccak224'
       | 'keccak256'
@@ -17,4 +17,6 @@ declare module 'keccak/js' {
       | 'sha3-384'
       | 'sha3-512'
   ): Keccak
+
+  export default createKeccakHash
 }

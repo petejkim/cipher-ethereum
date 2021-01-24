@@ -75,8 +75,8 @@ export class HDKey {
       } else {
         ecdh.setPrivateKey(privateKey)
         this._publicKey = Buffer.from(
-          ecdh.getPublicKey('latin1', 'compressed'),
-          'latin1'
+          ecdh.getPublicKey('hex', 'compressed'),
+          'hex'
         )
       }
     } else if (publicKey) {

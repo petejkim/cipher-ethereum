@@ -1,7 +1,5 @@
+import BN from 'bn.js'
 import { Transaction, TransactionParams } from './Transaction'
-
-import { BigNumber } from 'bignumber.js'
-import { denominations } from './denominations'
 
 const privateKey = Buffer.from(
   '18aed7b31dea5e7d7e50c868b72efcb10e4e5b8060e9bb3cf30b6e2ca6b8471c',
@@ -10,10 +8,10 @@ const privateKey = Buffer.from(
 
 const params: TransactionParams = {
   nonce: 27,
-  gasPriceWei: new BigNumber(20).times(denominations.Gwei),
-  gasLimit: new BigNumber(21000),
+  gasPriceWei: new BN(20e9),
+  gasLimit: new BN(21000),
   toAddress: '0xC589aC793Af309DB9690D819aBC9AAb37D169F6a',
-  valueWei: new BigNumber(1.5).times(denominations.ether),
+  valueWei: new BN((1.5e18).toString()),
   data: '0xdeadbeef0cafebabe0123456789'
 }
 
@@ -28,9 +26,9 @@ describe('initialization', () => {
     expect(() => {
       tx = new Transaction({
         nonce: 0,
-        gasPriceWei: new BigNumber(20).times(denominations.Gwei),
-        gasLimit: new BigNumber(21000),
-        valueWei: new BigNumber(1.5).times(denominations.ether)
+        gasPriceWei: new BN(20e9),
+        gasLimit: new BN(21000),
+        valueWei: new BN((1.5e18).toString())
       })
     }).not.toThrow()
     expect(tx).not.toBe(null)
@@ -58,7 +56,7 @@ describe('fields', () => {
     tx = new Transaction({
       ...params,
       toAddress: null,
-      valueWei: new BigNumber(0)
+      valueWei: new BN(0)
     })
     hexFields = tx.fields.map(field => field.toString('hex'))
     expect(hexFields).toEqual([

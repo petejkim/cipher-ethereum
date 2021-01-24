@@ -1,6 +1,6 @@
 {
   "name": "cipher-ethereum",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "An Ethereum library used by Cipher Browser, a mobile Ethereum client",
   "keywords": [
     "cipher",
